@@ -47,8 +47,9 @@ def question_5():
     o.getString()
     o.printString()
 
+'''
 #----------------------------------------#
-'''Question:
+Question:
 Write a program that calculates and prints the value according to the given formula:
 Q = Square root of [(2 * C * D)/H]
 Following are the fixed values of C and H:
@@ -76,8 +77,9 @@ def question_6():
         result.append(str(int(q)))
     print(','.join(result))    
 
+'''
 #----------------------------------------#
-'''Question 7
+Question 7
 Level 2
 
 Question:
@@ -96,8 +98,8 @@ def question_7():
     print(result)
     
 
-#----------------------------------------#
 '''
+#----------------------------------------#
 Question 8
 Level 2
 
@@ -116,8 +118,8 @@ def question_8():
     words.sort()
     print(words)
 
-#----------------------------------------#
 '''
+#----------------------------------------#
 Question 11
 Level 2
 
@@ -136,8 +138,8 @@ def question_11():
     numbers = [x for x in input().split(',') if int(x,2) % 5 == 0]
     print(''.join(numbers))
 
-#----------------------------------------#
 '''
+#----------------------------------------#
 Question 12
 Level 2
 
@@ -150,7 +152,7 @@ In case of input data being supplied to the question, it should be assumed to be
 '''
 def question_12():
     result = []
-    for n in range(1,27):               
+    for n in range(1000,3001):               
         temp = n
         while temp > 1:                
             if temp % 2 != 0:
@@ -159,6 +161,49 @@ def question_12():
         if temp < 1:
             result.append(n)
     print(result)
+
+'''
+#----------------------------------------#
+Question 13
+Level 2
+
+Question:
+Write a program that accepts a sentence and calculate the number of letters and digits.
+Suppose the following input is supplied to the program:
+hello world! 123
+Then, the output should be:
+LETTERS 10
+DIGITS 3
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+'''
+import re
+
+def question_13():
+    sentence = input()
+    regex = re.compile(r'\w', re.IGNORECASE)
+    lettersCnt = sum(1 for n in regex.findinter(sentence))
+    print('LETTERS {:d}'.format(lettersCnt))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
