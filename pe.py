@@ -47,6 +47,7 @@ def question_5():
     o.getString()
     o.printString()
 
+#----------------------------------------#
 '''Question:
 Write a program that calculates and prints the value according to the given formula:
 Q = Square root of [(2 * C * D)/H]
@@ -75,7 +76,7 @@ def question_6():
         result.append(str(int(q)))
     print(','.join(result))    
 
-
+#----------------------------------------#
 '''Question 7
 Level 2
 
@@ -95,7 +96,7 @@ def question_7():
     print(result)
     
 
-
+#----------------------------------------#
 '''
 Question 8
 Level 2
@@ -114,6 +115,64 @@ def question_8():
     words = input().split(',')
     words.sort()
     print(words)
+
+#----------------------------------------#
+'''
+Question 11
+Level 2
+
+Question:
+Write a program which accepts a sequence of comma separated 4 digit binary numbers as its input and then check whether they are divisible by 5 or not. The numbers that are divisible by 5 are to be printed in a comma separated sequence.
+Example:
+0100,0011,1010,1001
+Then the output should be:
+1010
+Notes: Assume the data is input by console.
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+'''
+def question_11():
+    numbers = [x for x in input().split(',') if int(x,2) % 5 == 0]
+    print(''.join(numbers))
+
+#----------------------------------------#
+'''
+Question 12
+Level 2
+
+Question:
+Write a program, which will find all such numbers between 1000 and 3000 (both included) such that each digit of the number is an even number.
+The numbers obtained should be printed in a comma-separated sequence on a single line.
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+'''
+def question_12():
+    result = []
+    for n in range(1,27):               
+        temp = n
+        while temp > 1:                
+            if temp % 2 != 0:
+                break            
+            temp //= 10             
+        if temp < 1:
+            result.append(n)
+    print(result)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
