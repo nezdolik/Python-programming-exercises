@@ -189,6 +189,92 @@ def question_13():
     print('LETTERS {:d}'.format(lettersCnt))
     print('DIGITS {:d}'.format(numbersCnt))
 
+'''
+#----------------------------------------#
+Question 14
+Level 2
+
+Question:
+Write a program that accepts a sentence and calculate the number of upper case letters and lower case letters.
+Suppose the following input is supplied to the program:
+Hello world!
+Then, the output should be:
+UPPER CASE 1
+LOWER CASE 9
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+'''
+
+def question_14():
+    sentence = input()
+    upperCaseRegex = re.compile(r'[A-Z]')
+    lowerCaseRegex = re.compile(r'[a-z]')
+    upperCaseCnt = sum(1 for n in re.finditer(upperCaseRegex, sentence))
+    lowerCaseCnt = sum(1 for n in re.finditer(lowerCaseRegex, sentence))
+    print('UPPER CASE {:d}'.format(upperCaseCnt))
+    print('LOWER CASE {:d}'.format(lowerCaseCnt))
+
+'''
+#----------------------------------------#
+Question 15
+Level 2
+
+Question:
+Write a program that computes the value of a+aa+aaa+aaaa with a given digit as the value of a.
+Suppose the following input is supplied to the program:
+9
+Then, the output should be:
+11106
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+'''
+def question_15():
+    a = input()
+    expression = 'a+aa+aaa+aaaa'.replace(r'a', a)
+    print(eval(expression))
+
+'''
+#----------------------------------------#
+Question 16
+Level 2
+
+Question:
+Use a list comprehension to square each odd number in a list. The list is input by a sequence of comma-separated numbers.
+Suppose the following input is supplied to the program:
+1,2,3,4,5,6,7,8,9
+Then, the output should be:
+1, 9, 25, 49, 81
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+'''
+def question_16():
+    inputList = input().split(',')
+    outputList = [int(x)**2 for x in inputList if int(x) % 2 == 1]
+    print(','.join(outputList))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
