@@ -1,6 +1,6 @@
 
 def question_1():
-    candidates = [];
+    candidates = []
     for c in range(2000, 3201):
         if c % 7 == 0 and not c % 5 == 0:
             candidates.append(str(c))
@@ -181,10 +181,15 @@ In case of input data being supplied to the question, it should be assumed to be
 import re
 
 def question_13():
-    sentence = input()
-    regex = re.compile(r'\w', re.IGNORECASE)
-    lettersCnt = sum(1 for n in regex.findinter(sentence))
+    phrase = input()
+    lettersRegex = re.compile(r'[A-Z]', re.IGNORECASE)
+    lettersCnt = sum(1 for n in lettersRegex.finditer(phrase))
+    numbersRegex = re.compile(r'\d')
+    numbersCnt = sum(1 for n in numbersRegex.finditer(phrase))
     print('LETTERS {:d}'.format(lettersCnt))
+    print('DIGITS {:d}'.format(numbersCnt))
+
+
 
 
 
