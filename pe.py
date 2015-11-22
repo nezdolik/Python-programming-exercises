@@ -1,3 +1,5 @@
+from symbol import break_stmt
+
 
 def question_1():
     candidates = []
@@ -254,6 +256,156 @@ def question_16():
     inputList = input().split(',')
     outputList = [int(x)**2 for x in inputList if int(x) % 2 == 1]
     print(','.join(outputList))
+
+
+'''
+#----------------------------------------#
+Question 17
+Level 2
+
+Question:
+Write a program that computes the net amount of a bank account based a transaction log from console input.
+The transaction log format is shown as following:
+D 100
+W 200
+D means deposit while W means withdrawal.
+Suppose the following input is supplied to the program:
+D 300
+D 300
+W 200
+D 100
+Then, the output should be:
+500
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.'''
+
+def question_17():
+    depositKey = 'D'
+    withdrawalKey = 'W'
+    accHistory = {depositKey: [], withdrawalKey: []}
+
+    while True:
+        transaction = input()
+        if not transaction:
+            break
+        else:
+            transactionData = transaction.split()
+            assert len(transactionData) == 2
+            if not transactionData[0] in accHistory:
+                continue
+            accHistory.get(transactionData[0]).append(int(transactionData[1]))
+
+    netVal = sum(x for x in accHistory.get(depositKey)) - sum(y for y in accHistory.get(withdrawalKey))
+    print('Net value = {:d}'.format(netVal))
+
+
+'''
+#----------------------------------------#
+Question 18
+Level 3
+
+Question:
+A website requires the users to input username and password to register. Write a program to check the validity of password input by users.
+Following are the criteria for checking the password:
+1. At least 1 letter between [a-z]
+2. At least 1 number between [0-9]
+1. At least 1 letter between [A-Z]
+3. At least 1 character from [$#@]
+4. Minimum length of transaction password: 6
+5. Maximum length of transaction password: 12
+Your program should accept a sequence of comma separated passwords and will check them according to the above criteria. Passwords that match the criteria are to be printed, each separated by a comma.
+Example
+If the following passwords are given as input to the program:
+ABd1234@1,a F1#,2w3E*,2We3345
+Then, the output of the program should be:
+ABd1234@1
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+'''
+
+
+
+def question_18():
+
+    def is_valid_length(passw):
+        return len(passw) >= 6 and len(passw)  <= 12
+
+    def match_rule(pattern, passw):
+        import re
+        return re.search(pattern, passw)
+
+    patterns = ('[a-z]','\d+','[A-Z]','[$#@]','^(?!.*\s).*$')
+
+    inputPasswords = input().split(',')
+
+    for psw in inputPasswords:
+        containsAllSymbols = True
+
+        for pattern in patterns:
+            if not match_rule(pattern, psw):
+                containsAllSymbols = False
+                break
+
+        if containsAllSymbols and is_valid_length(psw):
+            print(psw)
+
+'''
+#----------------------------------------#
+Question 19
+Level 3
+
+Question:
+You are required to write a program to sort the (name, age, height) tuples by ascending order where name is string,
+age and height are numbers. The tuples are input by console. The sort criteria is:
+1: Sort based on name;
+2: Then sort based on age;
+3: Then sort by score.
+The priority is that name > age > score.
+If the following tuples are given as input to the program:
+Tom,19,80
+John,20,90
+Jony,17,91
+Jony,17,93
+Json,21,85
+Then, the output of the program should be:
+[('John', '20', '90'), ('Jony', '17', '91'), ('Jony', '17', '93'), ('Json', '21', '85'), ('Tom', '19', '80')]
+
+Hints:
+In case of input data being supplied to the question, it should be assumed to be a console input.
+We use itemgetter to enable multiple sort keys.
+'''
+def question_19():
+    from collections import namedtuple
+    import operator
+    Student = namedtuple('Student', 'name age score')
+
+    students = list()
+
+    while True:
+        s = input()
+        if not s:
+            break
+        else:
+            studentData = s.split(',')
+            assert len(studentData) == 3
+            students.append(Student(studentData[0],
+                                    studentData[1],
+                                    studentData[2]))
+
+    students.sort(key=operator.attrgetter('name','age','score'))
+    print(students)
+
+
+# help(re)
+
+
+
+
+
+
+
 
 
 
