@@ -405,11 +405,19 @@ Define a class with a generator which can iterate the numbers, which are divisib
 class Simple7BaseGenerator(object):
 
     def __init__(self, n):
-        limit = n
-        current = 0
+        self.max_num = n
+        self.curr_num = 0
 
     def gen_7_base_num(self):
-        while self.current < self.limit:
+        while self.curr_num < self.max_num:
+            if self.curr_num % 7 == 0:
+                yield self.curr_num
+            self.curr_num += 7
+
+n = input()
+generator = Simple7BaseGenerator(n)
+for m in generator.gen_7_base_num():
+    print(m)
 
 # help(re)
 
