@@ -20,11 +20,11 @@ def question_3():
     dict = {}
     for i in range(1, n + 1):
         dict[i] = i * i
-    
+
     print(dict)
 
 def question_4():
-    nums = str(input())    
+    nums = str(input())
     l = nums.split(',')
     print(l)
     print(tuple(l))
@@ -34,10 +34,10 @@ class Question5Class(object):
 
     def __init__(self):
         self.word = ""
-    
+
     def getString(self):
         self.word = input()
-        
+
     def printString(self):
         print(self.word.upper())
 
@@ -63,8 +63,8 @@ The output of the program should be:
 Hints:
 If the output received is in decimal form, it should be rounded off to its nearest value (for example,
 if the output received is 26.0, it should be printed as 26)
-In case of input data being supplied to the question, it should be assumed to be a console input. '''        
-    
+In case of input data being supplied to the question, it should be assumed to be a console input. '''
+
 C = 50
 H = 30
 
@@ -74,7 +74,7 @@ def question_6():
     for d in values:
         q = ((2 * C * int(d)) / H) ** 0.5
         result.append(str(int(q)))
-    print(','.join(result))    
+    print(','.join(result))
 
 '''
 #----------------------------------------#
@@ -95,7 +95,7 @@ def question_7():
     assert len(dimensions) == 2
     result = [[x * y for x in range(dimensions[1])] for y in range(dimensions[0])]
     print(result)
-    
+
 
 '''
 #----------------------------------------#
@@ -151,12 +151,12 @@ In case of input data being supplied to the question, it should be assumed to be
 '''
 def question_12():
     result = []
-    for n in range(1000,3001):               
+    for n in range(1000,3001):
         temp = n
-        while temp > 1:                
+        while temp > 1:
             if temp % 2 != 0:
-                break            
-            temp //= 10             
+                break
+            temp //= 10
         if temp < 1:
             result.append(n)
     print(result)
@@ -411,10 +411,10 @@ class Simple7BaseGenerator(object):
                 yield self.curr_num
             self.curr_num += 1
 
-n = input()
-generator = Simple7BaseGenerator(n)
-for m in generator.gen_7_base_num():
-    print(m)
+# n = input()
+# generator = Simple7BaseGenerator(n)
+# for m in generator.gen_7_base_num():
+#     print(m)
 
 '''
 #----------------------------------------#
@@ -437,35 +437,37 @@ RIGHT 2
 Then, the output of the program should be:
 2
 '''
+import math
+
 def question_21():
 
-    start = [0,0]
+    start_point = [0,0]
 
-    after_movement = start
+    end_point = start_point
 
-    directions = [('UP',5), ('DOWN',3), ('LEFT',3), ('RIGHT',2)]
-    step = 2
+    directions = []
+
+    while True:
+        movement = input()
+        if movement:
+            directions.append(tuple(movement.split()))
+        else:
+            break;
 
     for direction, step in directions:
-        after_movement = {
-            'UP':    lambda x,y: [n + int(step) if idx==0 else n for idx, n in enumerate(after_movement)],
-            'DOWN':  lambda x,y: [n - int(step) if idx==0 else n for idx, n in enumerate(after_movement)],
-            'LEFT':  lambda x,y: [n - int(step) if idx==1 else n for idx, n in enumerate(after_movement)],
-            'RIGHT': lambda x,y: [n + int(step) if idx==1 else n for idx, n in enumerate(after_movement)]
+        end_point = {
+            'UP':    lambda x,y: [n + int(step) if idx==0 else n for idx, n in enumerate(end_point)],
+            'DOWN':  lambda x,y: [n - int(step) if idx==0 else n for idx, n in enumerate(end_point)],
+            'LEFT':  lambda x,y: [n - int(step) if idx==1 else n for idx, n in enumerate(end_point)],
+            'RIGHT': lambda x,y: [n + int(step) if idx==1 else n for idx, n in enumerate(end_point)]
 
-        }[direction](after_movement, step)
+        }[direction](end_point, step)
 
+    # we assume that sqrt value will not exceed int max value
+    distance = int(math.sqrt((end_point[0] - start_point[0]) ** 2 + (end_point[1] - start_point[1]) ** 2))
 
-    print(after_movement)
+    print(distance)
 
-
-
-    # while True:
-    #     movement = raw_input()
-    #     if movement:
-    #         print(directions)
-    #     else:
-    #         break;
 
 
 question_21()
