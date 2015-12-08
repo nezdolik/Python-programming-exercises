@@ -1,3 +1,7 @@
+import math
+import re
+
+
 def question_1():
     candidates = []
     for c in range(2000, 3201):
@@ -5,15 +9,18 @@ def question_1():
             candidates.append(str(c))
     print (','.join(candidates))
 
+
 def _factorial(n):
     if n == 0:
         return 1
     else:
         return n * _factorial(n - 1)
 
+
 def question_2():
     n = int(input())
     print(_factorial(n))
+
 
 def question_3():
     n = int(input())
@@ -22,6 +29,7 @@ def question_3():
         dict[i] = i * i
 
     print(dict)
+
 
 def question_4():
     nums = str(input())
@@ -35,16 +43,17 @@ class Question5Class(object):
     def __init__(self):
         self.word = ""
 
-    def getString(self):
+    def get_string(self):
         self.word = input()
 
-    def printString(self):
+    def print_string(self):
         print(self.word.upper())
+
 
 def question_5():
     o = Question5Class()
-    o.getString()
-    o.printString()
+    o.get_string()
+    o.print_string()
 
 '''
 #----------------------------------------#
@@ -68,6 +77,7 @@ In case of input data being supplied to the question, it should be assumed to be
 C = 50
 H = 30
 
+
 def question_6():
     values = [x for x in input().split(',')]
     result = list()
@@ -89,6 +99,7 @@ Suppose the following inputs are given to the program:
 3,5
 Then, the output of the program should be:
 [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8]] '''
+
 
 def question_7():
     dimensions = [int(x) for x in input().split(',')]
@@ -112,6 +123,7 @@ bag,hello,without,world
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.'''
 
+
 def question_8():
     words = input().split(',')
     words.sort()
@@ -133,6 +145,8 @@ Notes: Assume the data is input by console.
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 '''
+
+
 def question_11():
     numbers = [x for x in input().split(',') if int(x,2) % 5 == 0]
     print(''.join(numbers))
@@ -149,6 +163,8 @@ The numbers obtained should be printed in a comma-separated sequence on a single
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 '''
+
+
 def question_12():
     result = []
     for n in range(1000,3001):
@@ -177,7 +193,7 @@ DIGITS 3
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 '''
-import re
+
 
 def question_13():
     phrase = input()
@@ -205,14 +221,15 @@ Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 '''
 
+
 def question_14():
     sentence = input()
-    upperCaseRegex = re.compile(r'[A-Z]')
-    lowerCaseRegex = re.compile(r'[a-z]')
-    upperCaseCnt = sum(1 for n in re.finditer(upperCaseRegex, sentence))
-    lowerCaseCnt = sum(1 for n in re.finditer(lowerCaseRegex, sentence))
-    print('UPPER CASE {:d}'.format(upperCaseCnt))
-    print('LOWER CASE {:d}'.format(lowerCaseCnt))
+    upper_case_regex = re.compile(r'[A-Z]')
+    lower_case_regex = re.compile(r'[a-z]')
+    upper_case_cnt = sum(1 for n in re.finditer(upper_case_regex, sentence))
+    lower_case_cnt = sum(1 for n in re.finditer(lower_case_regex, sentence))
+    print('UPPER CASE {:d}'.format(upper_case_cnt))
+    print('LOWER CASE {:d}'.format(lower_case_cnt))
 
 '''
 #----------------------------------------#
@@ -229,6 +246,8 @@ Then, the output should be:
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 '''
+
+
 def question_15():
     a = input()
     expression = 'a+aa+aaa+aaaa'.replace(r'a', a)
@@ -249,6 +268,8 @@ Then, the output should be:
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 '''
+
+
 def question_16():
     inputList = input().split(',')
     outputList = [int(x)**2 for x in inputList if int(x) % 2 == 1]
@@ -277,24 +298,25 @@ Then, the output should be:
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.'''
 
+
 def question_17():
-    depositKey = 'D'
-    withdrawalKey = 'W'
-    accHistory = {depositKey: [], withdrawalKey: []}
+    deposit_key = 'D'
+    withdrawal_key = 'W'
+    acc_history = {deposit_key: [], withdrawal_key: []}
 
     while True:
         transaction = input()
         if not transaction:
             break
         else:
-            transactionData = transaction.split()
-            assert len(transactionData) == 2
-            if not transactionData[0] in accHistory:
+            transaction_data = transaction.split()
+            assert len(transaction_data) == 2
+            if not transaction_data[0] in acc_history:
                 continue
-            accHistory.get(transactionData[0]).append(int(transactionData[1]))
+            acc_history.get(transaction_data[0]).append(int(transaction_data[1]))
 
-    netVal = sum(x for x in accHistory.get(depositKey)) - sum(y for y in accHistory.get(withdrawalKey))
-    print('Net value = {:d}'.format(netVal))
+    net_val = sum(x for x in acc_history.get(deposit_key)) - sum(y for y in acc_history.get(withdrawal_key))
+    print('Net value = {:d}'.format(net_val))
 
 
 '''
@@ -321,28 +343,30 @@ ABd1234@1
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 '''
+
+
 def question_18():
 
     def is_valid_length(passw):
-        return len(passw) >= 6 and len(passw)  <= 12
+        return 6 <= len(passw) <= 12
 
     def match_rule(pattern, passw):
         import re
         return re.search(pattern, passw)
 
-    patterns = ('[a-z]','\d+','[A-Z]','[$#@]','^(?!.*\s).*$')
+    patterns = ('[a-z]', '\d+', '[A-Z]', '[$#@]', '^(?!.*\s).*$')
 
-    inputPasswords = input().split(',')
+    input_passwords = input().split(',')
 
-    for psw in inputPasswords:
-        containsAllSymbols = True
+    for psw in input_passwords:
+        contains_all_symbols = True
 
         for pattern in patterns:
             if not match_rule(pattern, psw):
-                containsAllSymbols = False
+                contains_all_symbols = False
                 break
 
-        if containsAllSymbols and is_valid_length(psw):
+        if contains_all_symbols and is_valid_length(psw):
             print(psw)
 
 '''
@@ -370,10 +394,12 @@ Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 We use itemgetter to enable multiple sort keys.
 '''
+
+
 def question_19():
     from collections import namedtuple
     import operator
-    Student = namedtuple('Student', 'name age score')
+    student = namedtuple('Student', 'name age score')
 
     students = list()
 
@@ -382,11 +408,11 @@ def question_19():
         if not s:
             break
         else:
-            studentData = s.split(',')
-            assert len(studentData) == 3
-            students.append(Student(studentData[0],
-                                    studentData[1],
-                                    studentData[2]))
+            student_data = s.split(',')
+            assert len(student_data) == 3
+            students.append(student(student_data[0],
+                                    student_data[1],
+                                    student_data[2]))
 
     students.sort(key=operator.attrgetter('name','age','score'))
     print(students)
@@ -399,6 +425,8 @@ Level 3
 Question:
 Define a class with a generator which can iterate the numbers, which are divisible by 7, between a given range 0 and n.
 '''
+
+
 class Simple7BaseGenerator(object):
 
     def __init__(self, n):
@@ -437,7 +465,7 @@ RIGHT 2
 Then, the output of the program should be:
 2
 '''
-import math
+
 
 def question_21():
 
@@ -445,23 +473,24 @@ def question_21():
 
     end_point = start_point
 
-    directions = []
+    movements = []
 
     while True:
         movement = input()
         if movement:
-            directions.append(tuple(movement.split()))
+            movements.append(tuple(movement.split()))
         else:
-            break;
+            break
 
-    for direction, step in directions:
-        end_point = {
-            'UP':    lambda x,y: [n + int(step) if idx==0 else n for idx, n in enumerate(end_point)],
-            'DOWN':  lambda x,y: [n - int(step) if idx==0 else n for idx, n in enumerate(end_point)],
-            'LEFT':  lambda x,y: [n - int(step) if idx==1 else n for idx, n in enumerate(end_point)],
-            'RIGHT': lambda x,y: [n + int(step) if idx==1 else n for idx, n in enumerate(end_point)]
+    directions = {
+        'UP': lambda x, y: [n + int(step) if idx == 0 else n for idx, n in enumerate(end_point)],
+        'DOWN': lambda x, y: [n - int(step) if idx == 0 else n for idx, n in enumerate(end_point)],
+        'LEFT': lambda x, y: [n - int(step) if idx == 1 else n for idx, n in enumerate(end_point)],
+        'RIGHT': lambda x, y: [n + int(step) if idx == 1 else n for idx, n in enumerate(end_point)]
+    }
 
-        }[direction](end_point, step)
+    for direction, step in movements:
+        end_point = directions[direction](end_point, step)
 
     # we assume that sqrt value will not exceed int max value
     distance = int(math.sqrt((end_point[0] - start_point[0]) ** 2 + (end_point[1] - start_point[1]) ** 2))
