@@ -416,6 +416,59 @@ generator = Simple7BaseGenerator(n)
 for m in generator.gen_7_base_num():
     print(m)
 
+'''
+#----------------------------------------#
+Question 21
+Level 3
+
+A robot moves in a plane starting from the original point (0,0). The robot can move toward UP, DOWN, LEFT and RIGHT with a given steps. The trace of robot movement is shown as the following:
+UP 5
+DOWN 3
+LEFT 3
+RIGHT 2
+
+The numbers after the direction are steps. Please write a program to compute the distance from current position after a sequence of movement and original point. If the distance is a float, then just print the nearest integer.
+Example:
+If the following tuples are given as input to the program:
+UP 5
+DOWN 3
+LEFT 3
+RIGHT 2
+Then, the output of the program should be:
+2
+'''
+def question_21():
+
+    start = [0,0]
+
+    after_movement = start
+
+    directions = [('UP',5), ('DOWN',3), ('LEFT',3), ('RIGHT',2)]
+    step = 2
+
+    for direction, step in directions:
+        after_movement = {
+            'UP':    lambda x,y: [n + int(step) if idx==0 else n for idx, n in enumerate(after_movement)],
+            'DOWN':  lambda x,y: [n - int(step) if idx==0 else n for idx, n in enumerate(after_movement)],
+            'LEFT':  lambda x,y: [n - int(step) if idx==1 else n for idx, n in enumerate(after_movement)],
+            'RIGHT': lambda x,y: [n + int(step) if idx==1 else n for idx, n in enumerate(after_movement)]
+
+        }[direction](after_movement, step)
+
+
+    print(after_movement)
+
+
+
+    # while True:
+    #     movement = raw_input()
+    #     if movement:
+    #         print(directions)
+    #     else:
+    #         break;
+
+
+question_21()
 # help(re)
 
 
