@@ -1,6 +1,3 @@
-from symbol import break_stmt
-
-
 def question_1():
     candidates = []
     for c in range(2000, 3201):
@@ -412,7 +409,7 @@ class Simple7BaseGenerator(object):
         while self.curr_num < self.max_num:
             if self.curr_num % 7 == 0:
                 yield self.curr_num
-            self.curr_num += 7
+            self.curr_num += 1
 
 n = input()
 generator = Simple7BaseGenerator(n)
