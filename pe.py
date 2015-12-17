@@ -572,6 +572,19 @@ def question_25():
     print WordProcessor.word
     print wp.word
 
+'''
+#----------------------------------------#
+Question 26
+Define a function which can compute the sum of two numbers.
+
+Hints:
+Define a function with two numbers as arguments. You can compute the sum in the function and return the value.
+'''
+def sum(n1, n2):
+    return n1 + n2
+
+def question_26():
+    print sum(100,200)
 
 question_22()
 # help(re)
