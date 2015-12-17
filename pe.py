@@ -576,15 +576,23 @@ def question_25():
 #----------------------------------------#
 Question 26
 Define a function which can compute the sum of two numbers.
-
-Hints:
-Define a function with two numbers as arguments. You can compute the sum in the function and return the value.
 '''
 def sum(n1, n2):
     return n1 + n2
 
 def question_26():
     print sum(100,200)
+
+'''
+#----------------------------------------#
+Question 27
+Define a function that can convert a integer into a string and print it in console.
+'''
+def int_to_str(num):
+    print str(num)
+
+def question_27():
+    int_to_str(10)
 
 question_22()
 # help(re)
