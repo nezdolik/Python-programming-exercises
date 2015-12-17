@@ -68,7 +68,6 @@ Let us assume the following comma separated input sequence is given to the progr
 100,150,180
 The output of the program should be:
 18,22,24
-
 Hints:
 If the output received is in decimal form, it should be rounded off to its nearest value (for example,
 if the output received is 26.0, it should be printed as 26)
@@ -90,7 +89,6 @@ def question_6():
 #----------------------------------------#
 Question 7
 Level 2
-
 Question:
 Write a program which takes 2 digits, X,Y as input and generates a 2-dimensional array. The element value in the i-th row and j-th column of the array should be i*j.
 Note: i=0,1.., X-1; j=0,1,Y-1.
@@ -112,14 +110,12 @@ def question_7():
 #----------------------------------------#
 Question 8
 Level 2
-
 Question:
 Write a program that accepts a comma separated sequence of words as input and prints the words in a comma-separated sequence after sorting them alphabetically.
 Suppose the following input is supplied to the program:
 without,hello,bag,world
 Then, the output should be:
 bag,hello,without,world
-
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.'''
 
@@ -133,7 +129,6 @@ def question_8():
 #----------------------------------------#
 Question 11
 Level 2
-
 Question:
 Write a program which accepts a sequence of comma separated 4 digit binary numbers as its input and then check whether they are divisible by 5 or not. The numbers that are divisible by 5 are to be printed in a comma separated sequence.
 Example:
@@ -141,7 +136,6 @@ Example:
 Then the output should be:
 1010
 Notes: Assume the data is input by console.
-
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 '''
@@ -155,11 +149,9 @@ def question_11():
 #----------------------------------------#
 Question 12
 Level 2
-
 Question:
 Write a program, which will find all such numbers between 1000 and 3000 (both included) such that each digit of the number is an even number.
 The numbers obtained should be printed in a comma-separated sequence on a single line.
-
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 '''
@@ -181,7 +173,6 @@ def question_12():
 #----------------------------------------#
 Question 13
 Level 2
-
 Question:
 Write a program that accepts a sentence and calculate the number of letters and digits.
 Suppose the following input is supplied to the program:
@@ -189,7 +180,6 @@ hello world! 123
 Then, the output should be:
 LETTERS 10
 DIGITS 3
-
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 '''
@@ -208,7 +198,6 @@ def question_13():
 #----------------------------------------#
 Question 14
 Level 2
-
 Question:
 Write a program that accepts a sentence and calculate the number of upper case letters and lower case letters.
 Suppose the following input is supplied to the program:
@@ -216,7 +205,6 @@ Hello world!
 Then, the output should be:
 UPPER CASE 1
 LOWER CASE 9
-
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 '''
@@ -235,14 +223,12 @@ def question_14():
 #----------------------------------------#
 Question 15
 Level 2
-
 Question:
 Write a program that computes the value of a+aa+aaa+aaaa with a given digit as the value of a.
 Suppose the following input is supplied to the program:
 9
 Then, the output should be:
 11106
-
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 '''
@@ -257,14 +243,12 @@ def question_15():
 #----------------------------------------#
 Question 16
 Level 2
-
 Question:
 Use a list comprehension to square each odd number in a list. The list is input by a sequence of comma-separated numbers.
 Suppose the following input is supplied to the program:
 1,2,3,4,5,6,7,8,9
 Then, the output should be:
 1, 9, 25, 49, 81
-
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 '''
@@ -280,7 +264,6 @@ def question_16():
 #----------------------------------------#
 Question 17
 Level 2
-
 Question:
 Write a program that computes the net amount of a bank account based a transaction log from console input.
 The transaction log format is shown as following:
@@ -294,7 +277,6 @@ W 200
 D 100
 Then, the output should be:
 500
-
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.'''
 
@@ -323,7 +305,6 @@ def question_17():
 #----------------------------------------#
 Question 18
 Level 3
-
 Question:
 A website requires the users to input username and password to register. Write a program to check the validity of password input by users.
 Following are the criteria for checking the password:
@@ -339,7 +320,6 @@ If the following passwords are given as input to the program:
 ABd1234@1,a F1#,2w3E*,2We3345
 Then, the output of the program should be:
 ABd1234@1
-
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 '''
@@ -373,7 +353,6 @@ def question_18():
 #----------------------------------------#
 Question 19
 Level 3
-
 Question:
 You are required to write a program to sort the (name, age, height) tuples by ascending order where name is string,
 age and height are numbers. The tuples are input by console. The sort criteria is:
@@ -389,7 +368,6 @@ Jony,17,93
 Json,21,85
 Then, the output of the program should be:
 [('John', '20', '90'), ('Jony', '17', '91'), ('Jony', '17', '93'), ('Json', '21', '85'), ('Tom', '19', '80')]
-
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 We use itemgetter to enable multiple sort keys.
@@ -421,7 +399,6 @@ def question_19():
 #----------------------------------------#
 Question 20
 Level 3
-
 Question:
 Define a class with a generator which can iterate the numbers, which are divisible by 7, between a given range 0 and n.
 '''
@@ -448,13 +425,11 @@ class Simple7BaseGenerator(object):
 #----------------------------------------#
 Question 21
 Level 3
-
 A robot moves in a plane starting from the original point (0,0). The robot can move toward UP, DOWN, LEFT and RIGHT with a given steps. The trace of robot movement is shown as the following:
 UP 5
 DOWN 3
 LEFT 3
 RIGHT 2
-
 The numbers after the direction are steps. Please write a program to compute the distance from current position after a sequence of movement and original point. If the distance is a float, then just print the nearest integer.
 Example:
 If the following tuples are given as input to the program:
@@ -497,145 +472,40 @@ def question_21():
 
     print(distance)
 
+'''
+#----------------------------------------#
+Write a program to compute the frequency of the words from the input. The output should output after sorting the key alphanumerically.
+Suppose the following input is supplied to the program:
+New to Python or choosing between Python 2 and Python 3? Read Python 2 or Python 3.
+Then, the output should be:
+2:2
+3.:1
+3?:1
+New:1
+Python:5
+Read:1
+and:1
+between:1
+choosing:1
+or:2
+to:1
+'''
+def question_22():
+    from collections import defaultdict
+    from collections import OrderedDict
+
+    words = raw_input().split()
+    dict = defaultdict(int)
+    for w in words: dict[w] += 1
+    orderedDict = OrderedDict(sorted(dict.items()))
+
+    for k, v in orderedDict.items(): print '%s:%d'%(k,v)
 
 
-question_21()
+
+
+
+
+
+question_22()
 # help(re)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
