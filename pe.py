@@ -547,7 +547,30 @@ def question_24():
     print raw_input.__doc__
     print custom_func.__doc__
 
+'''
+#----------------------------------------#
+Level 1
 
+Question 25
+    Define a class, which have a class parameter and have a same instance parameter.
+
+Hints:
+    Define a instance parameter, need add it in __init__ method
+    You can init a object with construct parameter or set the value later
+'''
+
+class WordProcessor(object):
+
+    word = 'Fish'
+
+    def __init__(self, word):
+        self.word = word
+
+
+def question_25():
+    wp = WordProcessor('Duck')
+    print WordProcessor.word
+    print wp.word
 
 
 question_22()
