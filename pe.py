@@ -501,6 +501,21 @@ def question_22():
 
     for k, v in orderedDict.items(): print '%s:%d'%(k,v)
 
+'''
+#----------------------------------------#
+Question 23
+level 1
+
+Question:
+    Write a method which can calculate square value of number
+'''
+def square(num):
+   return num ** 2
+
+def question_23():
+    squareStr = '%d^2 = %d'
+    print squareStr%(2,square(2))
+    print squareStr%(3,square(3))
 
 
 
